@@ -25,7 +25,7 @@ docker run -d --rm --name mysql-tutorial
  */
 
 @Configuration // khai báo đây là một class cấu hình, chứa các bean method được gọi ngay khi ứng dụng chạy
-public class Database {
+public class    Database {
     //logger
     public static final Logger log = LoggerFactory.getLogger(Database.class);
 

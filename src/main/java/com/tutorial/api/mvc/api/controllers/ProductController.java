@@ -3,6 +3,7 @@ package com.tutorial.api.mvc.api.controllers;
 import com.tutorial.api.mvc.api.models.Product;
 import com.tutorial.api.mvc.api.models.ResponseObject;
 import com.tutorial.api.mvc.api.repositories.ProductRepositories;
+import com.tutorial.api.mvc.api.services.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -19,13 +20,14 @@ public class ProductController {
     //DI = Dependency Injection
     @Autowired
     private ProductRepositories ProductRepositories;
+    private ProductService productService;
 
     //GET ALL PRODUCTS
     // khai báo phương thức GET
     @GetMapping("")
     //this is request : http://localhost:8080/api/v1/products/getAll
     List<Product> getAllProducts() {
-        return ProductRepositories.findAll(); // trả về tất cả các sản phẩm
+        return productService.getAllUser();
     }
 
     //GET PRODUCT BY ID

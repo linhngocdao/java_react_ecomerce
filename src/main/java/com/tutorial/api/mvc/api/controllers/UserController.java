@@ -26,6 +26,11 @@ public class UserController {
                     new ResponseObject("Success", "User created successfully", createdUser)
             );
         } catch (RuntimeException e) {
+            if (e.getMessage().equals("Username already exists")) {
+                return ResponseEntity.status(HttpStatus.CONFLICT).body(
+                        new ResponseObject("Error", "Username already exists", null)
+                );
+            }
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(
                     new ResponseObject("Error", "User creation failed", null)
             );

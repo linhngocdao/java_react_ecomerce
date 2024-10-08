@@ -1,4 +1,2 @@
 import {sendGet} from "./axios.tsx";
-
-
-    export const getProducts = () => sendGet("/products");
+export const getProducts = () => sendGet("/products");
